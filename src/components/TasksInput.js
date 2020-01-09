@@ -18,7 +18,7 @@ export default class TaskInput extends React.Component {
             </div>
         );
     }
-    extraInputChangedHandler = (event)=>{
+    extraInputChangedHandler = (event)=>{        
         this.extraText = event.target.value;
     }
 }

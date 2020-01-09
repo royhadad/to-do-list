@@ -9,7 +9,6 @@ export default class TaskItem extends React.Component {
             index: props.index,
             currentEdit: ""
         }
-        MyRedux.listen("zibi", this.func1);
     }
     func1= (value)=>{
         this.setState({
@@ -21,6 +20,9 @@ export default class TaskItem extends React.Component {
             task: nextProps.task,
             index: nextProps.index
         };
+    }
+    componentDidMount(){
+        MyRedux.listen("zibi", this.func1);
     }
     render() {
         let taskItemJSX = '';
