@@ -1,4 +1,5 @@
 import React from 'react';
+import MyRedux from '../entities/myRedux.js';
 
 export default class TaskItem extends React.Component {
     constructor(props) {
@@ -8,6 +9,12 @@ export default class TaskItem extends React.Component {
             index: props.index,
             currentEdit: ""
         }
+        MyRedux.listen("zibi", this.func1);
+    }
+    func1= (value)=>{
+        this.setState({
+            extraText: value
+        });
     }
     static getDerivedStateFromProps(nextProps, prevState) {
         return {
@@ -28,6 +35,9 @@ export default class TaskItem extends React.Component {
                     {"\u00a0"}{/*this is a space in javascript */}
                     <span onClick={() => { this.props.taskItemClickedHandler(this.state.index); }}>
                         {textWithDelTagIfNeeded}
+                    </span>
+                    <span>
+                        {this.state.extraText}
                     </span>
                 </span>
             </li>);
