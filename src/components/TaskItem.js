@@ -24,6 +24,9 @@ export default class TaskItem extends React.Component {
     componentDidMount(){
         MyRedux.listen("zibi", this.func1);
     }
+    componentWillUnmount(){
+        MyRedux.removeListener("zibi", this.func1);
+    }
     render() {
         let taskItemJSX = '';
         let textWithDelTagIfNeeded = (this.state.task.isDone) ? (<span><del>{this.state.task.text}</del></span>) : (<span>{this.state.task.text}</span>);
