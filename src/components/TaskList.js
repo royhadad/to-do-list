@@ -14,7 +14,6 @@ export default class TaskList extends React.Component {
         };
     }
     render() {
-        console.log(this.state.tasks);
         let listItemsArr = this.state.tasks.map((task, index) => (
             <TaskItem
                 task={task}

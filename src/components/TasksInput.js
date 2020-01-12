@@ -11,7 +11,6 @@ export default class TaskInput extends React.Component {
             <div>
                 <input type="text" onChange={this.inputChangedHandler} />
                 <button onClick={this.taskAddedHandler}>add task</button>
-
             </div>
         );
     }
