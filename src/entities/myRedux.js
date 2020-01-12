@@ -1,7 +1,3 @@
-//TODO BUG
-//then convert entire app to using redux
-
-
 class MyRedux {
     _values = {}; //pairs of key-value
     _listeners = {}; //pairs of key-callbacks
