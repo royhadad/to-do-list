@@ -4,6 +4,8 @@ import './App.css';
 import TaskList from './components/TaskList';
 import TaskInput from './components/TasksInput';
 import Task from './entities/Task';
+import { Provider } from 'react-redux';
+import store from './store.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,15 +17,17 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div className="app">
-        <TaskInput
-          inputChangedHandler={this.inputChangedHandler.bind(this)}
-          taskAddedHandler={this.taskAddedHandler.bind(this)} />
-        <TaskList tasks={this.state.tasks}
-          taskItemClickedHandler={this.taskItemClickedHandler.bind(this)}
-          taskItemDeletedHandler={this.taskItemDeletedHandler.bind(this)}
-          taskItemUpdatedHandler={this.taskItemUpdatedHandler.bind(this)} />
-      </div>
+      <Provider store={store}>
+        <div className="app">
+          <TaskInput
+            inputChangedHandler={this.inputChangedHandler.bind(this)}
+            taskAddedHandler={this.taskAddedHandler.bind(this)} />
+          <TaskList tasks={this.state.tasks}
+            taskItemClickedHandler={this.taskItemClickedHandler.bind(this)}
+            taskItemDeletedHandler={this.taskItemDeletedHandler.bind(this)}
+            taskItemUpdatedHandler={this.taskItemUpdatedHandler.bind(this)} />
+        </div>
+      </Provider>
     );
   }
   taskItemClickedHandler(itemIndex) {
