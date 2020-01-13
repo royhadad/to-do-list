@@ -8,3 +8,12 @@ export function fetchPosts() {
         });
     }
 }
+
+export function createPost() {
+    return function (dispatch) {
+        dispatch({
+            type: NEW_POST,
+            payload: "doda"
+        });
+    }
+}
